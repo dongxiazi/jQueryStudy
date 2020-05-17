@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18-attr和prop方法练习</title>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script>
+        $(function () {
+           //编写jQuery相关代码
+            //给按钮添加点击事件
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick=function () {
+                 //获取输入框输入的内容https://img.alicdn.com/tfs/TB17XHyFi_1gK0jSZFqXXcpaXXa-290-130.gif
+                //修改image的src的属性节点的值
+                var input = document.getElementsByTagName("input")[0];
+                var value = input.value;
+                // $("img").attr("src",value);
+                $("img").prop("src",value);//prop和attr都可以推荐使用attr因为不是checked,disabled,selected,
+            }
+            
+
+        });
+  </script>
+</head>
+<body>
+<input type="text">
+<button>切换图片</button></br>
+<img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+
+</body>
+</html>

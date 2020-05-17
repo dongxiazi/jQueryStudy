@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17-jQuery的prop方法</title>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script>
+        $(function () {
+           //编写jQuery相关代码
+            /**
+              prop(n|p|k,v|f)
+             特点和attr方法一致
+              removeProp(name)
+             特点和removeAttr方法一致
+             */
+           // $("span").eq(0).prop("demo","你好");
+           // $("span").eq(1).prop("demo","Inj");
+           //  console.log($("span").prop("demo"));
+
+            $("span").removeProp("demo");
+            /**
+             * 注意点
+             * prop方法不仅能够操作属性，它还能操作属性节点
+             *
+             * 官方推荐在操作属性节点时，具有true,false两个属性的属性节点，如selected,checked或者disabled
+             * 使用prop(),其他是使用attr()
+             */
+            // console.log($("span").prop("class"));
+            // $("span").prop("class","box");
+            // console.log($("input").prop("checked"));//如果是<input type="checkbox" checked>返回true
+            // console.log($("input").attr("checked"));//如果是<input type="checkbox" checked>返回checked
+            console.log($("input").prop("checked"));//如果是<input type="checkbox" >返回false
+            console.log($("input").attr("checked"));//如果是<input type="checkbox">返回undefined
+
+        });
+  </script>
+</head>
+<body>
+<span class="span1" name="it666"></span>
+<span class="span2" name="Inj"></span>
+<input type="checkbox" >
+</body>
+</html>
