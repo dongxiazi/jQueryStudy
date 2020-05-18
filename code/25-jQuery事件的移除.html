@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>25-jQuery事件的移除</title>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script>
+        $(function () {
+            function test(){
+                alert("test1");
+            }
+            function test2(){
+                alert("test2");
+            }
+        $("button").click(test);
+        $("button").click(test2);
+        $("button").mouseenter(function () {
+            alert("mouseenter");
+        });
+            $("button").mouseleave(function () {
+                alert("mouseleave");
+            });
+            //off方法如果不传参数，表示移除所有事件
+            // $("button").off();
+            //传递一个参数，会移除所有指定类型的事件
+          //  $("button").off("click");
+            //传递两个参数，会移除指定类型的指定事件
+            $("button").off("click",test);
+        });
+
+  </script>
+</head>
+<body>
+<button>我是button</button>
+</body>
+</html>
