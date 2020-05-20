@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27-jQuery事件自动触发</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script>
+        $(function () {
+            $(".son").click(function () {
+                alert("son");
+            });
+           //编写jQuery相关代码
+           $(".father").click(function () {
+           alert("father");
+           });
+          // $(".father").trigger("click");//第一种自动触发事件
+           // $(".father").triggerHandler("click");//第二种自动触发事件
+            /**
+             *1.第一个区别： 如果利用trigger自动触法事件，会触发事件冒泡
+             * 而triggerHandler自动触发事件，不会触发事件冒泡
+             */
+            // $(".son").trigger("click");
+            // $(".son").triggerHandler("click");
+
+
+            $("input[type='submit']").click(function () {
+               alert("submit");
+            });
+            /**
+             * 第二个区别：如果利用trigger自动触法事件，会触发默认行为
+             * 而triggerHandler自动触发事件，不会触发默认行为
+             * 鉴于以上区别根据你的需求来选择哪种触发事件
+             *
+             * 有个特别的例外，当是<a>标签时如果想用trigger自动触发事件
+             * 又需要触发默认行为的，那么需要在<a>标签内包装一个<span>再监听span的事件，
+             * 否则不触发默认行为
+             */
+           // $("input[type='submit']").trigger("click");
+            //$("input[type='submit']").triggerHandler("click");
+            // $("a").click(function () {
+            //  alert("a");
+            // });
+            // $("a").trigger("click");//这样不能触发默认行为需要包装<a>标签
+
+
+            $("span").click(function () {
+                alert("a");
+            });
+            $("span").trigger("click");
+
+        });
+
+  </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<a href="http://www.baidu.com"><span>注册</span></a>
+<form action="http://www.taobao.com">
+    <input type="text">
+    <input type="submit">
+
+</form>
+</body>
+</html>
