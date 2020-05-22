@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>31-jQuery事件委托</title>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script>
+        $(function () {
+           //编写jQuery相关代码
+            $("button").click(function () {
+              $("ul").append(" <li>我是新增的li</li>");
+            })
+            /**
+             * 此种写法，发现只有前三个可以打印，因为入口函数
+             * 只加载完三个li，对于新添加的，不可以，这时我们可以
+             * 通过事件代码用ul,入口函数就加载完的来代理li(不管新增的还是原来的li)
+             * 委托就是委托一些入口函数完成加载的dom元素来完成
+             */
+           // $("ul>li").click(function () {
+           //     //一定要记住用$()包装
+           //     console.log($(this).html());
+           // })
+            $("ul").delegate("li","click",function () {
+                console.log($(this).html());
+            })
+        });
+  </script>
+</head>
+<body>
+<ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+</ul>
+<button>新增一个li</button>
+</body>
+</html>
