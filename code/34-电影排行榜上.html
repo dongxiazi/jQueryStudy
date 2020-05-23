@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>34-电影排行榜上</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 450px;
+            margin: 50px auto;
+            border: 1px solid #000;
+        }
+
+        .box > h1 {
+            font-size: 20px;
+            line-height: 35px;
+            color: deeppink;
+            padding-left: 10px;
+            border: 1px dashed #ccc;
+        }
+
+        ul > li {
+            list-style: none;
+            padding: 5px 10px;
+            border: 1px dashed #ccc;
+        }
+
+        ul > li:nth-child(-n+3) > span {
+            background: deeppink;
+        }
+
+        ul > li > span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #ccc;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 10px;
+        }
+        .content{
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        .content>img{
+            width: 80px;
+            height: 120px;
+            float: left;
+        }
+        .content>p{
+            width: 180px;
+            height: 120px;
+            float: right;
+            font-size: 12px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>电影排行榜</h1>
+    <ul>
+        <li><span>1</span>电影名称
+            <div class="content">
+                <img src="images/百变金刚.jpg" alt="">
+                <p>
+                    《百变星君》是由叶伟民导演，周星驰，梁咏琪，吴孟达等主演的奇幻科幻喜剧片，
+                    于1995年在香港上映。影片讲述了李泽星因得罪黑帮头目遭轰杀至粉身碎骨，
+                    幸而由姜司教授将其改造为能变化多种形态的人造人复活，后来他又遭铁甲威龙追杀，
+                    但最终通过置入教授发明的芯片，他打败了铁甲威龙，同时也赢得了同学虫虫的芳心
+                    的故事。</p>
+            </div>
+        </li>
+        <li><span>2</span>电影名称</li>
+        <li><span>3</span>电影名称</li>
+        <li><span>4</span>电影名称</li>
+        <li><span>5</span>电影名称</li>
+        <li><span>6</span>电影名称</li>
+    </ul>
+</div>
+</body>
+</html>
