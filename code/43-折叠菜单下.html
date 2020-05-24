@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>43-折叠菜单下</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            list-style: none;
+            width: 300px;
+            margin: 100px auto;
+        }
+
+        .nav > li {
+            border: 1px solid #000;
+            line-height: 35px;
+            border-bottom: none;
+            text-indent: 2em;
+            position: relative;
+        }
+
+        .nav > li:last-child {
+            border-bottom: 1px solid #000;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .nav > li:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .nav > li > span {
+            background: url("images/右箭头.jpeg") no-repeat center center;
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+
+        .sub {
+            display: none;
+        }
+
+        .sub > li {
+            list-style: none;
+            background: mediumpurple;
+            border: 1px solid white;
+        }
+
+        .sub > li:hover {
+            background: red;
+        }
+        .nav> .current>span{
+            transform: rotate(90deg);//选中90度
+        }
+    </style>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            //监听一级菜单的点击事件
+            $(".nav>li").click(function () {
+                //1.1拿到二级菜单
+                var $sub = $(this).children(".sub");//找到一级菜单叫.sub的儿子
+                //1.2让二级菜单展开
+                $sub.slideDown(1000);
+             //1.3拿到所有非当前的二级菜单
+               // console.log($(this).siblings().children(".sub"));
+                var $otherSub = $(this).siblings().children(".sub");//$(this).siblings() 非当前一级菜单的其他兄弟菜单，
+                // 再找其.sub儿子
+                //1.4让所有非当前的二级菜单收起
+                $otherSub.slideUp(1000);
+                //1.5让被点击的一级菜单箭头旋转
+                $(this).addClass("current");
+                //1.6让所有非被点击的一级菜单箭头还原
+                $(this).siblings().removeClass("current");
+            })
+
+        });
+    </script>
+</head>
+<body>
+<ul class="nav">
+    <li >一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
